@@ -854,7 +854,9 @@ h2 {
 
   .dropdown-menu a {
     color: #0f477c;
-    padding: 10px 12px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    padding: 8px 10px;
     white-space: normal;
   }
 
@@ -1066,6 +1068,11 @@ h2 {
   .site-nav > a,
   .nav-dropdown > summary {
     font-size: 0.86rem;
+    padding: 7px 9px;
+  }
+
+  .dropdown-menu a {
+    font-size: 0.8rem;
     padding: 7px 9px;
   }
 
