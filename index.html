@@ -5,29 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>St. Mary's Syro-Malabar Catholic Church</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
-<body>
-  <header class="site-header">
-    <a class="site-brand" href="index.html" aria-label="St. Mary's Syro-Malabar Catholic Church home">
-      <img src="navbarImage.png" alt="St. Mary's Syro-Malabar Catholic Church">
-    </a>
-
-    <input class="menu-checkbox" type="checkbox" id="menu-toggle" aria-label="Open navigation menu">
-    <label class="menu-button" for="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="active" href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="mass-times.html">Mass Times</a>
-      <a href="ministries.html">Ministries</a>
-      <a href="contact.html">Contact</a>
-      <a class="nav-button" href="contact.html">Visit Us</a>
-    </nav>
-  </header>
+<body data-page="home">
+  <div id="navbar"></div>
 
   <main>
     <section class="hero">
@@ -43,13 +24,13 @@
       </div>
     </section>
 
-    <section class="schedule-section">
+    <section class="schedule-section reveal">
       <div class="birds" aria-hidden="true">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div class="section-inner">
+      <div class="section-inner reveal">
         <p class="section-label">Worship With Us</p>
         <h2>Holy Qurbana Schedule</h2>
 
@@ -110,7 +91,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer reveal">
     <div class="footer-inner">
       <div>
         <strong>St. Mary's Syro-Malabar Catholic Church</strong>
