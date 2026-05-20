@@ -511,6 +511,10 @@ h2 {
   box-shadow: 0 18px 40px rgba(15, 71, 124, 0.08);
 }
 
+.bishop-card-text {
+  grid-template-columns: 1fr;
+}
+
 .bishop-card img {
   width: 130px;
   height: 150px;
@@ -763,6 +767,178 @@ h2 {
   margin-bottom: 0;
   color: #3d4b56;
   font-size: 1.04rem;
+}
+
+.contact-section,
+.leadership-section {
+  padding: 72px 18px;
+  background: #ffffff;
+}
+
+.leadership-section-soft {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(87, 170, 230, 0.12), transparent 28%),
+    linear-gradient(180deg, #f7fbfe 0%, #ffffff 100%);
+}
+
+.contact-grid {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 22px;
+}
+
+.contact-overview {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.contact-card {
+  padding: 30px;
+  border: 1px solid #d8ebf8;
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 71, 124, 0.08);
+}
+
+.contact-card h2 {
+  margin-bottom: 16px;
+}
+
+.contact-card address {
+  margin-bottom: 18px;
+  color: #3d4b56;
+  font-style: normal;
+}
+
+.contact-card p {
+  margin-bottom: 8px;
+}
+
+.contact-card a {
+  color: #0f477c;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+.contact-list {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+}
+
+.contact-list div {
+  padding-top: 16px;
+  border-top: 1px solid #e5f1f9;
+}
+
+.contact-list dt {
+  color: #57aae6;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-list dd {
+  margin: 4px 0 0;
+  color: #3d4b56;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.contact-vicar-card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.contact-vicar-card img {
+  width: 150px;
+  height: 185px;
+  object-fit: cover;
+  object-position: top center;
+  border: 4px solid #f2f8fc;
+}
+
+.leadership-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #d8ebf8;
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 71, 124, 0.08);
+}
+
+.ward-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.ward-grid .leadership-table {
+  min-width: 0;
+}
+
+.council-stack {
+  display: grid;
+  gap: 32px;
+}
+
+.council-stack h3 {
+  margin: 0 0 14px;
+  color: #0f477c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+}
+
+.leadership-table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.leadership-table th,
+.leadership-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #e5f1f9;
+  vertical-align: top;
+}
+
+.leadership-table th {
+  background: #0f477c;
+  color: #ffffff;
+  font-size: 0.84rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.leadership-table th:first-child,
+.leadership-table td:first-child {
+  width: 44%;
+}
+
+.leadership-table th:nth-child(2),
+.leadership-table td:nth-child(2) {
+  width: 56%;
+}
+
+.leadership-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.leadership-table td:first-child {
+  color: #0f477c;
+  font-weight: 800;
 }
 
 @keyframes hero-slideshow {
@@ -1176,6 +1352,73 @@ h2 {
     padding: 24px;
   }
 
+  .contact-section,
+  .leadership-section {
+    padding: 48px 16px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-overview,
+  .contact-vicar-card {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-vicar-card img {
+    width: 180px;
+    height: 220px;
+  }
+
+  .ward-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leadership-table-wrap {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .leadership-table,
+  .leadership-table thead,
+  .leadership-table tbody,
+  .leadership-table tr,
+  .leadership-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .leadership-table thead {
+    display: none;
+  }
+
+  .leadership-table tr {
+    margin-bottom: 12px;
+    border: 1px solid #d8ebf8;
+    background: #ffffff;
+    box-shadow: 0 10px 24px rgba(15, 71, 124, 0.08);
+  }
+
+  .leadership-table td {
+    display: grid;
+    grid-template-columns: 98px 1fr;
+    gap: 14px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5f1f9;
+  }
+
+  .leadership-table td::before {
+    content: attr(data-label);
+    color: #64707b;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;
@@ -1211,6 +1454,11 @@ h2 {
   }
 
   .schedule-table td {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .leadership-table td {
     grid-template-columns: 1fr;
     gap: 3px;
   }
