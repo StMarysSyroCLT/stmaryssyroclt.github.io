@@ -1,5 +1,5 @@
-const isAboutPage = window.location.pathname.includes('/about/');
-const pathPrefix = isAboutPage ? '../' : '';
+const isNestedPage = window.location.pathname.includes('/about/') || window.location.pathname.includes('/liturgy/');
+const pathPrefix = isNestedPage ? '../' : '';
 
 const navbarFallback = `
 <header class="site-header">
@@ -19,7 +19,14 @@ const navbarFallback = `
         <a data-page="our-parish-vicar" data-section="about" data-href="about/our-parish-vicar.html" href="about/our-parish-vicar.html">Our Parish Vicar</a>
       </div>
     </details>
-    <a data-page="mass-times" data-href="mass-times.html" href="mass-times.html">Mass Times</a>
+    <details class="nav-dropdown">
+      <summary>Liturgy</summary>
+      <div class="dropdown-menu">
+        <a data-page="liturgical-books" data-section="liturgy" data-href="liturgy/liturgical-books.html" href="liturgy/liturgical-books.html">Liturgical Books</a>
+        <a data-page="sacraments" data-section="liturgy" data-href="liturgy/sacraments.html" href="liturgy/sacraments.html">Sacraments</a>
+      </div>
+    </details>
+    <a data-href="index.html#mass-times" href="index.html#mass-times">Mass Times</a>
     <a data-page="ministries" data-href="ministries.html" href="ministries.html">Ministries</a>
     <a data-page="contact" data-href="contact.html" href="contact.html">Contact</a>
     <a class="nav-button" data-page="contact" data-href="contact.html" href="contact.html">Visit Us</a>
@@ -62,9 +69,9 @@ async function loadNavbar() {
     }
   });
 
-  if (currentSection === 'about') {
-    const aboutMenu = navbarMount.querySelector('.nav-dropdown');
-    aboutMenu?.classList.add('active');
+  if (currentSection) {
+    const sectionMenu = navbarMount.querySelector(`[data-section="${currentSection}"]`)?.closest('.nav-dropdown');
+    sectionMenu?.classList.add('active');
   }
 }
 
