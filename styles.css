@@ -406,28 +406,133 @@ h2 {
   fill: currentColor;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 920px) {
   .site-header {
     align-items: flex-start;
     flex-direction: column;
+    gap: 12px;
     position: static;
   }
 
+  .site-brand img {
+    max-width: min(520px, 100%);
+    max-height: 64px;
+  }
+
   .site-nav {
+    width: 100%;
+    flex-wrap: nowrap;
     justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
   }
 
   .site-nav a {
-    padding: 8px 10px;
+    flex: 0 0 auto;
+  }
+
+  .site-nav .nav-button {
+    margin-left: 0;
+  }
+
+  .hero {
+    min-height: 620px;
+  }
+}
+
+@media (max-width: 700px) {
+  .site-brand img {
+    max-height: 54px;
+  }
+
+  .site-nav a {
+    padding: 8px 11px;
+    font-size: 0.92rem;
+  }
+
+  .hero {
+    min-height: 520px;
+    padding: 64px 18px;
+  }
+
+  .hero-text {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+    line-height: 1.12;
+  }
+
+  .welcome-line {
+    font-size: 1.25rem;
+  }
+
+  .location-line {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
   }
 
   .schedule-section {
-    padding: 48px 18px;
+    padding: 48px 16px;
   }
 
-  .schedule-table th,
+  .birds {
+    display: none;
+  }
+
+  .schedule-table-wrap {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .schedule-table {
+    min-width: 0;
+  }
+
+  .schedule-table,
+  .schedule-table thead,
+  .schedule-table tbody,
+  .schedule-table tr,
   .schedule-table td {
-    padding: 14px;
+    display: block;
+    width: 100%;
+  }
+
+  .schedule-table thead {
+    display: none;
+  }
+
+  .schedule-table tr {
+    margin-bottom: 14px;
+    border: 1px solid #d8ebf8;
+    background: #ffffff;
+    box-shadow: 0 10px 24px rgba(15, 71, 124, 0.08);
+  }
+
+  .schedule-table td {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 14px;
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5f1f9;
+  }
+
+  .schedule-table td::before {
+    content: attr(data-label);
+    color: #64707b;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .schedule-table td:nth-child(2) {
+    width: 100%;
+    white-space: normal;
   }
 
   .footer-inner {
@@ -437,5 +542,29 @@ h2 {
 
   .footer-contact {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 430px) {
+  .site-header {
+    padding: 8px 12px;
+  }
+
+  .site-brand img {
+    max-height: 46px;
+  }
+
+  .site-nav a {
+    font-size: 0.86rem;
+    padding: 7px 9px;
+  }
+
+  .hero {
+    min-height: 470px;
+  }
+
+  .schedule-table td {
+    grid-template-columns: 1fr;
+    gap: 3px;
   }
 }
