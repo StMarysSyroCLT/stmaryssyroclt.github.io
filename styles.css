@@ -368,6 +368,11 @@ h2 {
   vertical-align: top;
 }
 
+.schedule-table th:nth-child(4),
+.schedule-table td:nth-child(4) {
+  display: none;
+}
+
 .schedule-table th {
   background: #0f477c;
   color: #ffffff;
@@ -1339,6 +1344,15 @@ h2 {
   }
 
   .schedule-table td:nth-child(2) {
+    display: none;
+  }
+
+  .schedule-table td:nth-child(3) {
+    display: none;
+  }
+
+  .schedule-table td:nth-child(4) {
+    display: grid;
     width: 100%;
     white-space: normal;
   }
@@ -1506,17 +1520,20 @@ h2 {
   }
 
   .footer-inner {
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     flex-direction: column;
+    gap: 18px;
+    text-align: center;
   }
 
   .footer-contact {
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
   }
 
   .social-links {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 

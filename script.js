@@ -1,5 +1,9 @@
-const isNestedPage = window.location.pathname.includes('/about/') || window.location.pathname.includes('/liturgy/');
-const pathPrefix = isNestedPage ? '../' : '';
+const currentPath = window.location.pathname;
+const pathPrefix = currentPath.includes('/pages/about/') || currentPath.includes('/pages/liturgy/')
+  ? '../../'
+  : currentPath.includes('/pages/')
+    ? '../'
+    : '';
 
 const navbarFallback = `
 <header class="site-header">
@@ -13,22 +17,22 @@ const navbarFallback = `
     <details class="nav-dropdown">
       <summary>About</summary>
       <div class="dropdown-menu">
-        <a data-page="parish-history" data-section="about" data-href="about/parish-history.html" href="about/parish-history.html">Parish History</a>
-        <a data-page="diocese-history" data-section="about" data-href="about/diocese-history.html" href="about/diocese-history.html">Diocese History</a>
-        <a data-page="syro-malabar-church" data-section="about" data-href="about/syro-malabar-church.html" href="about/syro-malabar-church.html">Syro-Malabar Church</a>
-        <a data-page="our-parish-vicar" data-section="about" data-href="about/our-parish-vicar.html" href="about/our-parish-vicar.html">Our Parish Vicar</a>
+        <a data-page="parish-history" data-section="about" data-href="pages/about/parish-history.html" href="pages/about/parish-history.html">Parish History</a>
+        <a data-page="diocese-history" data-section="about" data-href="pages/about/diocese-history.html" href="pages/about/diocese-history.html">Diocese History</a>
+        <a data-page="syro-malabar-church" data-section="about" data-href="pages/about/syro-malabar-church.html" href="pages/about/syro-malabar-church.html">Syro-Malabar Church</a>
+        <a data-page="our-parish-vicar" data-section="about" data-href="pages/about/our-parish-vicar.html" href="pages/about/our-parish-vicar.html">Our Parish Vicar</a>
       </div>
     </details>
     <details class="nav-dropdown">
       <summary>Liturgy</summary>
       <div class="dropdown-menu">
-        <a data-page="liturgical-books" data-section="liturgy" data-href="liturgy/liturgical-books.html" href="liturgy/liturgical-books.html">Liturgical Books</a>
-        <a data-page="sacraments" data-section="liturgy" data-href="liturgy/sacraments.html" href="liturgy/sacraments.html">Sacraments</a>
+        <a data-page="liturgical-books" data-section="liturgy" data-href="pages/liturgy/liturgical-books.html" href="pages/liturgy/liturgical-books.html">Liturgical Books</a>
+        <a data-page="sacraments" data-section="liturgy" data-href="pages/liturgy/sacraments.html" href="pages/liturgy/sacraments.html">Sacraments</a>
       </div>
     </details>
     <a data-href="index.html#mass-times" href="index.html#mass-times">Mass Times</a>
-    <a data-page="ministries" data-href="ministries.html" href="ministries.html">Ministries</a>
-    <a data-page="contact" data-href="contact.html" href="contact.html">Contact</a>
+    <a data-page="ministries" data-href="pages/ministries.html" href="pages/ministries.html">Ministries</a>
+    <a data-page="contact" data-href="pages/contact.html" href="pages/contact.html">Contact</a>
     <a class="nav-button" href="https://stthomas.parishon.net/charlotte/site/login" target="_blank" rel="noopener noreferrer">Parish On Net</a>
   </nav>
 </header>`;
