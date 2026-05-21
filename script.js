@@ -73,6 +73,36 @@ async function loadNavbar() {
     const sectionMenu = navbarMount.querySelector(`[data-section="${currentSection}"]`)?.closest('.nav-dropdown');
     sectionMenu?.classList.add('active');
   }
+
+  initNavbarDropdowns(navbarMount);
+}
+
+function initNavbarDropdowns(navbarMount) {
+  const dropdowns = navbarMount.querySelectorAll('.nav-dropdown');
+
+  dropdowns.forEach((dropdown) => {
+    dropdown.addEventListener('toggle', () => {
+      if (!dropdown.open) {
+        return;
+      }
+
+      dropdowns.forEach((otherDropdown) => {
+        if (otherDropdown !== dropdown) {
+          otherDropdown.removeAttribute('open');
+        }
+      });
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (navbarMount.contains(event.target)) {
+      return;
+    }
+
+    dropdowns.forEach((dropdown) => {
+      dropdown.removeAttribute('open');
+    });
+  });
 }
 
 function initRevealAnimations() {
@@ -91,7 +121,8 @@ function initRevealAnimations() {
       }
     });
   }, {
-    threshold: 0.15
+    rootMargin: '0px 0px -8% 0px',
+    threshold: 0.01
   });
 
   revealItems.forEach((item) => {
