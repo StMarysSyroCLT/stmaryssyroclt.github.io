@@ -401,6 +401,74 @@ h2 {
   background: #f7fbfe;
 }
 
+.liturgical-calendar-section {
+  padding: 0 18px 72px;
+  background: #ffffff;
+}
+
+.liturgical-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.liturgical-widget-card {
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid #d8ebf8;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(15, 71, 124, 0.08);
+}
+
+.liturgical-widget-card h3 {
+  margin: 0 0 18px;
+  color: #0f477c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.syro-widget-placeholder {
+  min-height: 180px;
+  overflow-x: auto;
+  color: #44515c;
+}
+
+.syro-widget-placeholder.is-loading {
+  padding: 18px;
+  border: 1px solid #e5f1f9;
+  background:
+    linear-gradient(90deg, #f7fbfe 25%, #eef8ff 37%, #f7fbfe 63%);
+  background-size: 400% 100%;
+  color: #64707b;
+  font-weight: 700;
+  animation: syro-loading 1.4s ease infinite;
+}
+
+.syro-widget-placeholder:empty::before {
+  content: "Loading...";
+  display: block;
+  min-height: 180px;
+  padding: 18px;
+  border: 1px solid #e5f1f9;
+  background:
+    linear-gradient(90deg, #f7fbfe 25%, #eef8ff 37%, #f7fbfe 63%);
+  background-size: 400% 100%;
+  color: #64707b;
+  font-weight: 700;
+  animation: syro-loading 1.4s ease infinite;
+}
+
+.syro-widget-error {
+  min-height: 0;
+  padding: 16px;
+  border: 1px solid #e5f1f9;
+  background: #f7fbfe;
+  color: #3d4b56;
+  font-weight: 700;
+}
+
 .page-hero {
   padding: 96px 18px;
   background:
@@ -1040,6 +1108,16 @@ h2 {
   }
 }
 
+@keyframes syro-loading {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
 .site-footer {
   padding: 34px clamp(24px, 5vw, 72px);
   background: #0f477c;
@@ -1289,6 +1367,18 @@ h2 {
 
   .schedule-section {
     padding: 48px 16px;
+  }
+
+  .liturgical-calendar-section {
+    padding: 0 16px 48px;
+  }
+
+  .liturgical-calendar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .liturgical-widget-card {
+    padding: 22px 18px;
   }
 
   .birds {

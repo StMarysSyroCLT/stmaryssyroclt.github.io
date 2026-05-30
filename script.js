@@ -134,5 +134,119 @@ function initRevealAnimations() {
   });
 }
 
+function loadSyroCalendarScript() {
+  const scriptSrc = 'https://syrocalendar.com/API/SyroCalendar.min.1.0.2.js';
+
+  if (window.__syroCalendarScriptPromise) {
+    return window.__syroCalendarScriptPromise;
+  }
+
+  const existingScript = document.querySelector(`script[src="${scriptSrc}"]`);
+
+  window.__syroCalendarScriptPromise = new Promise((resolve, reject) => {
+    if (window.SyroCalendar_GetEvents_TableForm) {
+      resolve();
+      return;
+    }
+
+    const script = existingScript || document.createElement('script');
+    const loadingTimeout = window.setTimeout(() => {
+      reject(new Error('SyroCalendar script timed out.'));
+    }, 10000);
+
+    script.addEventListener('load', () => {
+      window.clearTimeout(loadingTimeout);
+      script.dataset.syroCalendarLoaded = 'true';
+      resolve();
+    }, { once: true });
+
+    script.addEventListener('error', () => {
+      window.clearTimeout(loadingTimeout);
+      reject(new Error('SyroCalendar script could not be loaded.'));
+    }, { once: true });
+
+    if (!existingScript) {
+      script.src = scriptSrc;
+      script.async = true;
+      document.head.appendChild(script);
+    } else if (script.dataset.syroCalendarLoaded === 'true') {
+      window.clearTimeout(loadingTimeout);
+      resolve();
+    }
+  });
+
+  return window.__syroCalendarScriptPromise;
+}
+
+function initSyroCalendarWidgets() {
+  const readingsWidget = document.getElementById('SyroCalendar_LiturgicalReadings_Eng');
+  const eventsWidget = document.getElementById('SyroCalendar_Events_TableForm');
+
+  if (!readingsWidget && !eventsWidget) {
+    return;
+  }
+
+  const unavailableText = 'Liturgical information is currently unavailable.';
+  const widgetLoadTimeout = 20000;
+  const widgets = [readingsWidget, eventsWidget].filter(Boolean);
+  const initialTextByWidget = new Map();
+
+  widgets.forEach((widget) => {
+    initialTextByWidget.set(widget, widget.textContent.trim());
+    widget.classList.add('is-loading');
+  });
+
+  const hasLoadedContent = (widget) => {
+    const text = widget.textContent.trim();
+    return text && text !== initialTextByWidget.get(widget) && text !== unavailableText;
+  };
+
+  const showUnavailable = (widget) => {
+    if (!widget || hasLoadedContent(widget)) {
+      return;
+    }
+
+    widget.classList.remove('is-loading');
+    widget.classList.add('syro-widget-error');
+    widget.textContent = unavailableText;
+  };
+
+  widgets.forEach((widget) => {
+    const observer = new MutationObserver(() => {
+      if (hasLoadedContent(widget)) {
+        widget.classList.remove('is-loading', 'syro-widget-error');
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(widget, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+  });
+
+  loadSyroCalendarScript()
+    .then(() => {
+      if (window.FetchData) {
+        window.FetchData();
+      }
+
+      if (window.SyroCalendar_GetEvents_TableForm) {
+        window.SyroCalendar_GetEvents_TableForm();
+      } else {
+        showUnavailable(eventsWidget);
+      }
+
+      window.setTimeout(() => {
+        widgets.forEach(showUnavailable);
+      }, widgetLoadTimeout);
+    })
+    .catch(() => {
+      widgets.forEach(showUnavailable);
+    });
+}
+
 loadNavbar();
 initRevealAnimations();
+initSyroCalendarWidgets();
