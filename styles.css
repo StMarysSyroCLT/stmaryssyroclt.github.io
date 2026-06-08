@@ -415,6 +415,13 @@ h2 {
   background: #ffffff;
 }
 
+.liturgical-content-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 2fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
 .liturgical-calendar-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -435,6 +442,32 @@ h2 {
   color: #0f477c;
   font-size: 1.45rem;
   line-height: 1.2;
+}
+
+.about-us-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-us-card p {
+  margin-bottom: 22px;
+  color: #44515c;
+}
+
+.about-us-card a {
+  width: fit-content;
+  margin-top: auto;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #235789;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.about-us-card a:hover {
+  background: #1b4368;
 }
 
 .syro-widget-placeholder {
@@ -1371,6 +1404,7 @@ h2 {
     padding: 0 16px 48px;
   }
 
+  .liturgical-content-layout,
   .liturgical-calendar-grid {
     grid-template-columns: 1fr;
   }
