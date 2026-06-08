@@ -2,16 +2,30 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
   margin: 0;
   color: #1f2933;
   background: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
 
 a {
   color: #235789;
+}
+
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .site-header {
@@ -25,9 +39,7 @@ a {
   background: #ffffff;
   border-bottom: 1px solid rgba(31, 41, 51, 0.1);
   box-shadow: 0 8px 28px rgba(31, 41, 51, 0.08);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  position: relative;
 }
 
 .site-brand {
@@ -214,7 +226,6 @@ a {
 .location-line {
   margin: 0;
   color: #ffffff;
-  font-family: Georgia, "Times New Roman", serif;
   font-weight: 700;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
@@ -241,7 +252,6 @@ p {
 h1 {
   margin: 0;
   color: #ffffff;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.1rem, 5.8vw, 4.4rem);
   line-height: 1.08;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.38);
@@ -342,7 +352,6 @@ h1 {
 h2 {
   margin-bottom: 26px;
   color: #0f477c;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
 }
@@ -424,7 +433,6 @@ h2 {
 .liturgical-widget-card h3 {
   margin: 0 0 18px;
   color: #0f477c;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.45rem;
   line-height: 1.2;
 }
@@ -546,7 +554,6 @@ h2 {
 .values-grid h3 {
   margin: 0 0 10px;
   color: #0f477c;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.45rem;
 }
 
@@ -635,7 +642,6 @@ h2 {
 .history-entry h3 {
   margin: 0 0 16px;
   color: #0f477c;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.45rem, 3vw, 2rem);
   line-height: 1.15;
 }
@@ -694,7 +700,6 @@ h2 {
 .vicar-card h3 {
   margin: 16px 0 8px;
   color: #0f477c;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.25rem;
   line-height: 1.15;
 }
@@ -755,7 +760,6 @@ h2 {
 .book-card h3 {
   margin: 0 0 18px;
   color: #0f477c;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.55rem;
 }
 
@@ -813,7 +817,6 @@ h2 {
   border: 1px solid #d8ebf8;
   background: #ffffff;
   color: #0f477c;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.25rem;
   font-weight: 700;
   text-align: center;
@@ -832,7 +835,6 @@ h2 {
 .sacrament-detail h3 {
   margin: 0 0 12px;
   color: #0f477c;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.7rem;
 }
 
@@ -972,7 +974,6 @@ h2 {
 .council-stack h3 {
   margin: 0 0 14px;
   color: #0f477c;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.45rem;
 }
 
@@ -1047,7 +1048,6 @@ h2 {
 .ministry-card h2,
 .ministry-card h3 {
   color: #0f477c;
-  font-family: Georgia, "Times New Roman", serif;
 }
 
 .ministry-card h2 {
@@ -1136,7 +1136,6 @@ h2 {
 
 .site-footer strong {
   display: block;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.15rem;
   line-height: 1.2;
 }
@@ -1200,7 +1199,6 @@ h2 {
     align-items: center;
     flex-direction: row;
     gap: 12px;
-    position: sticky;
   }
 
   .site-brand img {
