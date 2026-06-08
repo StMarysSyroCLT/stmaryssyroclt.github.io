@@ -899,10 +899,6 @@ h2 {
   background: #ffffff;
 }
 
-.leadership-section + .leadership-section {
-  padding-top: 18px;
-}
-
 .leadership-section-soft {
   background:
     radial-gradient(circle at 88% 12%, rgba(87, 170, 230, 0.12), transparent 28%),
@@ -1647,10 +1643,6 @@ h2 {
   .leadership-section,
   .bulletins-section {
     padding: 48px 16px;
-  }
-
-  .leadership-section + .leadership-section {
-    padding-top: 14px;
   }
 
   .contact-grid {
