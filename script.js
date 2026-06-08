@@ -31,7 +31,7 @@ const navbarFallback = `
         <a data-page="sacraments" data-section="liturgy" data-href="pages/liturgy/sacraments.html" href="pages/liturgy/sacraments.html">Sacraments</a>
       </div>
     </details>
-    <a data-href="index.html#mass-times" href="index.html#mass-times">Mass Times</a>
+    <a data-href="index.html#mass-times" href="index.html#mass-times">Mass Schedule</a>
     <a data-page="ministries" data-href="pages/ministries.html" href="pages/ministries.html">Ministries</a>
     <a data-page="contact" data-href="pages/contact.html" href="pages/contact.html">Contact</a>
     <a class="nav-button" href="https://stthomas.parishon.net/charlotte/site/login" target="_blank" rel="noopener noreferrer">Parish On Net</a>
@@ -71,6 +71,7 @@ async function loadNavbar() {
   navbarMount.querySelectorAll('[data-page]').forEach((link) => {
     if (link.dataset.page === currentPage) {
       link.classList.add('active');
+      link.closest('.nav-dropdown')?.classList.add('active');
     }
   });
 

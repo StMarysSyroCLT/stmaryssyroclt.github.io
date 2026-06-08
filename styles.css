@@ -1047,16 +1047,6 @@ h2 {
   box-shadow: 0 18px 40px rgba(15, 71, 124, 0.08);
 }
 
-.ward-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
-}
-
-.ward-grid .leadership-table {
-  min-width: 0;
-}
-
 .council-stack {
   display: grid;
   gap: 32px;
@@ -1099,6 +1089,18 @@ h2 {
 .leadership-table th:nth-child(2),
 .leadership-table td:nth-child(2) {
   width: 56%;
+}
+
+.ward-representatives-table th:first-child,
+.ward-representatives-table td:first-child {
+  width: 18%;
+}
+
+.ward-representatives-table th:nth-child(2),
+.ward-representatives-table td:nth-child(2),
+.ward-representatives-table th:nth-child(3),
+.ward-representatives-table td:nth-child(3) {
+  width: 41%;
 }
 
 .leadership-table tr:last-child td {
@@ -1669,10 +1671,6 @@ h2 {
     align-items: flex-start;
     flex-direction: column;
     padding: 22px 18px;
-  }
-
-  .ward-grid {
-    grid-template-columns: 1fr;
   }
 
   .ministry-section {
