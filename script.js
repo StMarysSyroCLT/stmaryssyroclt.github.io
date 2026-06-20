@@ -136,6 +136,35 @@ function initRevealAnimations() {
   });
 }
 
+async function loadAnnouncementText() {
+  const announcementText = document.getElementById('announcement-text');
+  const announcementTicker = document.getElementById('announcements');
+
+  if (!announcementText) {
+    return;
+  }
+
+  try {
+    const response = await fetch(`${pathPrefix}announcments-sroll-homepage.txt?v=${Date.now()}`, {
+      cache: 'no-store'
+    });
+
+    if (!response.ok) {
+      throw new Error('Announcement file could not be loaded.');
+    }
+
+    const text = (await response.text()).trim();
+
+    if (text) {
+      announcementText.textContent = text;
+    } else {
+      announcementTicker?.setAttribute('hidden', '');
+    }
+  } catch {
+    announcementTicker?.setAttribute('hidden', '');
+  }
+}
+
 function loadSyroCalendarScript() {
   const scriptSrc = 'https://syrocalendar.com/API/SyroCalendar.min.1.0.2.js';
 
@@ -251,4 +280,5 @@ function initSyroCalendarWidgets() {
 
 loadNavbar();
 initRevealAnimations();
+loadAnnouncementText();
 initSyroCalendarWidgets();
