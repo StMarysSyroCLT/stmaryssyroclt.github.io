@@ -325,14 +325,13 @@ h1 {
   display: flex;
   align-items: center;
   margin: 0;
-  padding-left: 100%;
   padding-right: 48px;
   color: #523f00;
   font-size: clamp(1.2rem, 5vw, 2rem);
   font-weight: 800;
   line-height: 1.2;
   white-space: nowrap;
-  animation: announcement-scroll 24s linear infinite;
+  animation: announcement-scroll 18s linear infinite;
 }
 
 .schedule-section {
@@ -1285,7 +1284,7 @@ h2 {
 
 @keyframes announcement-scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(100vw);
   }
 
   100% {
@@ -1528,6 +1527,10 @@ h2 {
   .hero {
     min-height: 520px;
     padding: 64px 18px;
+  }
+
+  .announcement-track p {
+    animation-duration: 12s;
   }
 
   .hero-text {
@@ -1854,6 +1857,10 @@ h2 {
 
   .hero {
     min-height: 470px;
+  }
+
+  .announcement-track p {
+    animation-duration: 10s;
   }
 
   .schedule-table td {
