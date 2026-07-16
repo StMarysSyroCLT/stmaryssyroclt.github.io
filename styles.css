@@ -173,7 +173,7 @@ a {
 }
 
 .hero {
-  min-height: calc(100vh - 50px);
+  min-height: 65vh;
   display: flex;
   align-items: center;
   justify-content: center;
