@@ -1913,3 +1913,21 @@ h2 {
     transition: none;
   }
 }
+
+.parish-feast-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 35px auto 50px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.parish-feast-banner img {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
