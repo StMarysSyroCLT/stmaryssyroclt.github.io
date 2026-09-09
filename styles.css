@@ -199,17 +199,8 @@ a {
 }
 
 .slide-one {
-  background-image: url("images/Onam2026.jpeg");
-}
-
-.slide-two {
   background-image: url("images/home2.png");
   animation-delay: 6s;
-}
-
-.slide-three {
-  background-image: url("images/ParishFeast2026.jpeg");
-  animation-delay: 12s;
 }
 
 .hero::after {
