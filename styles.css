@@ -193,14 +193,12 @@ a {
 .slide {
   background-position: center;
   background-size: cover;
-  opacity: 0;
+  opacity: 1;
   transform: scale(1);
-  animation: hero-slideshow 18s ease-in-out infinite;
 }
 
 .slide-one {
   background-image: url("images/home2.png");
-  animation-delay: 6s;
 }
 
 .hero::after {
