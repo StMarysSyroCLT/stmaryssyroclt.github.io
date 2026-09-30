@@ -137,10 +137,21 @@
 
         if (!rawLines[index]) {
           const nextIndex = nextNonEmptyIndex(rawLines, index + 1);
+          const nextLine = nextIndex >= 0 ? rawLines[nextIndex] : "";
 
-          if (nextIndex < 0 || !isDate(rawLines[nextIndex])) {
-            index = nextIndex < 0 ? rawLines.length : nextIndex;
+          if (nextIndex < 0) {
+            index = rawLines.length;
             break;
+          }
+
+          if (isDate(nextLine)) {
+            index = nextIndex;
+            break;
+          }
+
+          if (shouldContinueActivityAfterBlank(nextLine, activityLines.length > 0)) {
+            index = nextIndex;
+            continue;
           }
 
           index = nextIndex;
@@ -162,6 +173,11 @@
   function normalizeScheduleRow(date, day, activityLines) {
     const dayLines = [day];
     const serviceLines = [...activityLines];
+    const weekday = getWeekdayFromDate(date);
+
+    if (weekday && !isDay(day)) {
+      dayLines.unshift(weekday);
+    }
 
     while (serviceLines.length && shouldMoveToDayCell(serviceLines[0], serviceLines[1])) {
       dayLines.push(serviceLines.shift());
@@ -175,11 +191,39 @@
   }
 
   function isDayDetail(value) {
-    return /^(feast\b|first friday$|transfiguration\b)/i.test(value);
+    return /^(feast\b|first friday$|life sunday$|cml day$|transfiguration\b)/i.test(value);
+  }
+
+  function getWeekdayFromDate(value) {
+    const parts = value.split(/[/:]/).map(Number);
+
+    if (parts.length !== 3) {
+      return "";
+    }
+
+    const date = new Date(parts[2], parts[0] - 1, parts[1]);
+
+    if (Number.isNaN(date.getTime())) {
+      return "";
+    }
+
+    return new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(date);
   }
 
   function isServiceLine(value) {
     return /^(\d{1,2}:\d{2}\s*(AM|PM)\b|N\/A$)/i.test(value);
+  }
+
+  function isAnnouncementHeading(value) {
+    return /^[A-Z0-9][^:]{2,90}:\s+/.test(value);
+  }
+
+  function shouldContinueActivityAfterBlank(value, hasActivityLines) {
+    if (isServiceLine(value) || /^followed by\b/i.test(value)) {
+      return true;
+    }
+
+    return hasActivityLines && !isAnnouncementHeading(value);
   }
 
   function shouldMoveToDayCell(value, nextValue) {
